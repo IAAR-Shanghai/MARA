@@ -27,7 +27,7 @@ bash scripts/train_multi_reward_mistral_v3.sh
 
 ### Evaluation
 
-We offer the trained RL actor model based on Mistral-7B-Instruct-v0.3 with preference rate 2:1. Use the following command to get the alignment result and the reward score and cost score of the model output. More trained MARA agents can be found at [MARA_AGENTS](https://huggingface.co/GretaYY/MARA_AGENTS).
+We offer the trained RL actor model based on Mistral-7B-Instruct-v0.3 with preference rate 2:1. Use the following command to get the alignment result and the reward score and cost score of the model output. More trained MARA agents can be found at [MARA_AGENTS](https://huggingface.co/IAAR-Shanghai/MARA_AGENTS/tree/main).
 
 ```bash
 cd evaluation
