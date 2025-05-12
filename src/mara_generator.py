@@ -239,16 +239,16 @@ class MARAGenerator():
                 curr_state = curr_new_outputs['hidden_states'][-1][0, -1].detach().tolist()
 
                 action_list, probs = self.agent.select_action([curr_state], train=False)
-                log.info("***action_1_probs***")
-                log.info(probs.tolist()[0])
-                log.info("***curr_action***")
-                log.info(action_list)
+                # log.info("***action_1_probs***")
+                # log.info(probs.tolist()[0])
+                # log.info("***curr_action***")
+                # log.info(action_list)
                 if action_list[0] == self.args.accept_action:
                     accept_idx = i
                     break
             self.is_new_token = True
-            log.info(
-                "new_token_cnt:{}/{}, accept_idx: {}".format(self.new_token_cnt, self.max_new_token, accept_idx))
+            # log.info(
+            #     "new_token_cnt:{}/{}, accept_idx: {}".format(self.new_token_cnt, self.max_new_token, accept_idx))
             accept_token_id = self.chosen_indices[accept_idx]
             self.generate_ids.append(accept_token_id)
             self.new_token_cnt += 1

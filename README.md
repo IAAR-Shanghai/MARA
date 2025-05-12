@@ -115,5 +115,3 @@ CUDA_VISIBLE_DEVICES=0 python eval_executor.py \
   --reward_model_device cuda:0
 
 ```
-
-All of the pre-trained alignment models, detail evaluation result and detailed experimental logs will be released when our work  is officially published. Our open-source commitment ensures that all results presented in this paper can be independently verified and reproduced with minimal effort, promoting transparency and facilitating future research in the field.
