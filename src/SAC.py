@@ -375,6 +375,15 @@ class DistriDiscreteSAC:
             self.alpha = self.log_alpha.exp().detach()
             print("log_alpha loaded!")
 
+    def load_actor(self, actor_model_path):
+        print('\nBegin to load actor model from {}'.format(actor_model_path))
+        if os.path.exists(actor_model_path):
+            actor = torch.load(actor_model_path, map_location=self.learner_device)
+            self.actor_net.load_state_dict(actor)
+            print("Model loaded!")
+        else:
+            sys.exit(f'Model not founded!')
+
     def get_weights(self):
         return [move_state_dict(self.actor_net.state_dict(), "cpu")]
 

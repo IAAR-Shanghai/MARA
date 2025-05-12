@@ -110,11 +110,16 @@ def get_model_output(args, eval_data):
         generator_name = "{}_{}_{}_{}{}".format(args.policy_model_type.lower().replace("-", "_"),
                                                 args.eval_mode, args.reward_model_type, args.N, eval_exp_name)
     else:
-        generator_name = "{}_{}_run_{}_episode_{}_{}_topk{}_topp{}_temperature{}{}".format(
-            args.policy_model_type.lower().replace("-", "_"),
-            args.eval_mode, args.load_run, args.load_episode, args.proxy_strategy, args.topk, args.topp,
-            args.temperature,
-            eval_exp_name)
+        if args.agent_model_path.endswith(".pth"):
+            actor_name = args.agent_model_path.split("/")[-1].replace(".pth", "")
+            generator_name = "{}_{}_topk{}_topp{}_temperature{}".format(actor_name, args.proxy_strategy, args.topk,
+                                                                        args.topp, args.temperature)
+        else:
+            generator_name = "{}_{}_run_{}_episode_{}_{}_topk{}_topp{}_temperature{}{}".format(
+                args.policy_model_type.lower().replace("-", "_"),
+                args.eval_mode, args.load_run, args.load_episode, args.proxy_strategy, args.topk, args.topp,
+                args.temperature,
+                eval_exp_name)
         gen_info = {"gen_token_cnt_list": [],  # 每个样例生成的结果长度，len(gen_token_cnt_list)=sample_cnt
                     "proxy_token_cnt_list": [],  # 需要经过agent进行决策的token长度，len(proxy_token_cnt_listt)=sample_cnt
                     "cand_token_dict": {},  # 每个决策位的候选token数，1<=cand_token_cnt<=topK，0表示不需要决策

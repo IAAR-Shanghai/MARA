@@ -62,7 +62,10 @@ class MARAGenerator():
             self.agent = DistriDiscreteSAC(args, args.state_dim, args.action_dim, is_learner=False, worker_id=-1,
                                            device=args.policy_model_device)
             try:
-                self.agent.load(self.args.agent_model_path, episode=self.args.load_episode)
+                if self.args.agent_model_path.endwith(".pth"):
+                    self.agent.load_actor(self.args.agent_model_path)
+                else:
+                    self.agent.load(self.args.agent_model_path, episode=self.args.load_episode)
             except:
                 log.error("No models detected!")
                 raise

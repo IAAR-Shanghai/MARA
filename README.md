@@ -89,7 +89,7 @@ CUDA_VISIBLE_DEVICES=0 python eval_executor.py \
 --load_episode 18000 \
 --load_run 2 \
 --policy_model_type  mistral_instruct_v3 \
---policy_model_path path2model/Mistral-7B-Instruct-v0.3  \x
+--policy_model_path path2model/Mistral-7B-Instruct-v0.3  \
 --policy_model_device cuda:0 \
 --state_transition v0 \
 --default_action_idx 0 \
