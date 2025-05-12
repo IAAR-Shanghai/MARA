@@ -115,8 +115,8 @@ parser.add_argument("--min_tokens_to_keep", default=1, type=int)
 parser.add_argument("--length_penalty", default=1.0, type=float)
 
 # wandb init in proxy_rlhf.scripts.distri_executor_v2 Learner() __init__
-parser.add_argument('--wandb_entity_name', type=str, default="xx")
-parser.add_argument('--wandb_project_name', type=str, default="xx")
+parser.add_argument('--wandb_entity_name', type=str, default=None)
+parser.add_argument('--wandb_project_name', type=str, default=None)
 
 
 

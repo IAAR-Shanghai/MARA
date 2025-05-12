@@ -1,8 +1,7 @@
-wandb login --relogin xxxx
 cd src
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py \
     --env_name multi_reward \
-    --algo_name mistral_v3 \
+    --algo_name mistral_v3_safeRLHF \
     --dataset safeRLHF \
     --dataset_path ../data/SafeRLHF/train.json \
     --train_epoch 1 \
@@ -25,7 +24,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py \
     --policy_model_path path2model/Mistral-7B-Instruct-v0.3  \
     --reward_model_type  beaver_reward beaver_cost \
     --reward_model_path path2mode/beaver-7b-v1.0-reward path2model/beaver-7b-v1.0-cost  \
-    --reward_multiplier 2.0 -1.0\
+    --reward_multiplier 2.0 -1.0 \
     --reward_model_device cuda:7 \
     --reward_type kl_div \
     --cond_prob \
@@ -39,7 +38,4 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py \
     --max_new_token 512 \
     --topk 40 \
     --topp 0.95 \
-    --temperature 0.8 \
-    --length_penalty 1 \
-    --wandb_entity_name xxx \
-    --wandb_project_name xxx
+    --temperature 0.8

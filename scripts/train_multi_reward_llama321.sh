@@ -1,12 +1,12 @@
 cd src
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py \
     --env_name multi_reward \
-    --algo_name llama318_safeRLHF \
+    --algo_name llama321_safeRLHF \
     --dataset safeRLHF \
     --dataset_path ../data/SafeRLHF/train.json \
     --train_epoch 1 \
     --max_episode 21000 \
-    --state_dim 4096 \
+    --state_dim 2048 \
     --action_dim 2 \
     --hidden_dim 1024 \
     --buffer_capacity 1000000 \
@@ -21,7 +21,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python train.py \
     --update_time 10 \
     --save_interval 500 \
     --policy_model_type  llama \
-    --policy_model_path path2model/Meta-Llama-3.1-8B-Instruct  \
+    --policy_model_path path2model/Llama-3.2-1B-Instruct  \
     --reward_model_type  beaver_reward beaver_cost \
     --reward_model_path path2model/beaver-7b-v1.0-reward path2model/beaver-7b-v1.0-cost  \
     --reward_multiplier 1.0 -1.0 \

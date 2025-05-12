@@ -80,12 +80,18 @@ class Learner():
             self.episode = self.args.reload_episode + 1
 
         '''init wandb'''
-        wandb.init(config=all_args.__dict__,
-                   entity=all_args.wandb_entity_name,
-                   project=all_args.wandb_project_name,
-                   name=f"{all_args.algo_name}_{all_args.dataset}_{all_args.run_index}",
-                   dir=all_args.save_path,
-                   group=f"{all_args.algo_name}_{all_args.dataset}_{all_args.run_index}")
+        if all_args.wandb_entity_name is None or all_args.wandb_project_name is None:
+            wandb.init(config=all_args.__dict__,
+                       name=f"{all_args.algo_name}_{all_args.dataset}_{all_args.run_index}",
+                       dir=all_args.save_path,
+                       group=f"{all_args.algo_name}_{all_args.dataset}")
+        else:
+            wandb.init(config=all_args.__dict__,
+                       entity=all_args.wandb_entity_name,
+                       project=all_args.wandb_project_name,
+                       name=f"{all_args.algo_name}_{all_args.dataset}_{all_args.run_index}",
+                       dir=all_args.save_path,
+                       group=f"{all_args.algo_name}_{all_args.dataset}")
 
     def update(self, ps, curr_buffer, llm_io, logging_dict):
         multi_reward = 0
