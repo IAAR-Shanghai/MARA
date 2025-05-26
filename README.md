@@ -7,11 +7,8 @@ This is the official code of the paper **Token-level Accept or Reject: A micro a
 Models**[IJCAI 2025] .
 
 ## Overview
+TL;DR: **MARA** (Micro token-level Accept-Reject Alignment) simplifies the alignment process by breaking down sentence-level preference learning into fine-grained token-level binary classification. The MARA agent—a lightweight multi-layer perceptron (MLP)—operates as an alignment model that evaluates and classifies each candidate token as either *Accepted* or *Rejected* during LLM text generation.
 
-TL;DR: **MARA**
-(Micro token-level Accept-Reject Aligning) simplifies the alignment process by decomposing sentence-level preference
-learning into token-level binary classification, where a compact three-layer fully-connected network determines whether
-candidate tokens are “Accepted” or “Rejected” as part of the response.
 <figure>
   <img src="./assets/mara_architecture.png" alt="mara_architecture" style="display: block; margin: 0 auto;" />
   <figcaption style="text-align: center;">Architecture of MARA: The alignment model performs token selection through accept-reject decisions.</figcaption>
@@ -46,7 +43,7 @@ bash scripts/train_multi_reward_mistral_v3.sh
 
 We offer the trained RL actor model based on Mistral-7B-Instruct-v0.3 with preference rate 2:1. Use the following
 command to get the alignment result and the reward score and cost score of the model output. More trained MARA agents
-can be found at [MARA_AGENTS](https://huggingface.co/IAAR-Shanghai/MARA_AGENTS/tree/main).
+can be found at [MARA_AGENTS](https://huggingface.co/IAAR-Shanghai/MARA_AGENTS).
 
 ```bash
 cd evaluation
@@ -88,7 +85,6 @@ CUDA_VISIBLE_DEVICES=0 python eval_executor.py \
 ```
 
 ## Results for Experiment
-
 <table class="center">
     <tr>
         <td width=100% style="border: none">
