@@ -3,8 +3,22 @@
 </h1>
 
 
-This is the official code of the paper **Token-level Accept or Reject: A micro alignment approach for Large Language
-Models**[IJCAI 2025] .
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <a href="https://github.com/IAAR-Shanghai/MARA">
+    <img src="https://img.shields.io/badge/GitHub-Repository-blue?logo=github" alt="GitHub"/>
+  </a>
+  <a href="https://huggingface.co/IAAR-Shanghai/MARA_AGENTS">
+    <img src="https://img.shields.io/badge/🤗%20Hugging%20Face-MARA_AGENTS-yellow" alt="Hugging Face"/>
+  </a>
+    <a href="https://arxiv.org/abs/2505.19743">
+        <img src="https://img.shields.io/badge/arXiv-Paper-8B0000?style=flat-square&logo=arxiv&logoColor=white">
+    </a>
+</div>
+
+This is the official code of the paper [**Token-level Accept or Reject: A micro alignment approach for Large Language
+Models** [IJCAI 2025]](http://arxiv.org/abs/2505.19743) .
+
+
 
 ## Overview
 TL;DR: **MARA** (Micro token-level Accept-Reject Alignment) simplifies the alignment process by breaking down sentence-level preference learning into fine-grained token-level binary classification. The MARA agent—a lightweight multi-layer perceptron (MLP)—operates as an alignment model that evaluates and classifies each candidate token as either *Accepted* or *Rejected* during LLM text generation.
@@ -110,4 +124,16 @@ CUDA_VISIBLE_DEVICES=0 python eval_executor.py \
         </td>
     </tr>
 </table>
-More details and analyses about experimental results can be found in our paper.
+
+More details and analyses about experimental results can be found in our [paper](https://arxiv.org/abs/2505.19743).
+
+## 📖 BibTeX
+If the code or the paper has been useful in your research, please add a citation to our work:
+```
+@article{zhang2025tokenlevelacceptrejectmicro,
+      title={Token-level Accept or Reject: A Micro Alignment Approach for Large Language Models}, 
+      author={Yang Zhang and Yu Yu and Bo Tang and Yu Zhu and Chuxiong Sun and Wenqiang Wei and Jie Hu and Zipeng Xie and Zhiyu Li and Feiyu Xiong and Edward Chung},
+      journal={arXiv preprint arXiv:2505.19743},
+      year={2025}
+}
+```
