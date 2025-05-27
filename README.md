@@ -4,6 +4,7 @@
 
 
 <div style="display: flex; justify-content: center; gap: 10px;">
+<p align="center">
   <a href="https://github.com/IAAR-Shanghai/MARA">
     <img src="https://img.shields.io/badge/GitHub-Repository-blue?logo=github" alt="GitHub"/>
   </a>
@@ -13,6 +14,7 @@
     <a href="https://arxiv.org/abs/2505.19743">
         <img src="https://img.shields.io/badge/arXiv-Paper-8B0000?style=flat-square&logo=arxiv&logoColor=white">
     </a>
+</p>
 </div>
 
 This is the official code of the paper [**Token-level Accept or Reject: A micro alignment approach for Large Language
